@@ -11,10 +11,13 @@
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
-        #map {
-            width: 1392px;
-            height: 782px;
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
         }
         </style>
         <title></title>
@@ -32,24 +35,28 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-search.js"></script>
-        <script src="data/Risquedeprcaritalimentaire76copier_1.js"></script>
+        <script src="data/Risquedeprcaritalimentaire76_1.js"></script>
         <script src="data/Communes_2.js"></script>
-        <script src="data/EPCISeineMaritime_3.js"></script>
-        <script src="data/Dpartement_4.js"></script>
-        <script src="data/RestoduCoeurcommunesdesservies_5.js"></script>
+        <script src="data/CommunesdesserviesEI2R_3.js"></script>
+        <script src="data/PointsdarrtEI2R_4.js"></script>
+        <script src="data/CommunesdesserviesRestoduCoeur_5.js"></script>
         <script src="data/EntreptrgionalRestoduCoeur_6.js"></script>
-        <script src="data/CentresdedistributionRestoduCoeur_7.js"></script>
+        <script src="data/CentrededistributionRestoduCoeur_7.js"></script>
         <script src="data/ArretsCamionitinrantRestoduCoeur_8.js"></script>
-        <script src="data/AssociationspartenairesBA76_9.js"></script>
-        <script src="data/CommunesEI2R_10.js"></script>
-        <script src="data/PointsdarrtEI2Rcopier_11.js"></script>
-        <script src="data/Cache_12.js"></script>
-        <script src="data/BanquesAlimentairesSeineMaritime_13.js"></script>
+        <script src="data/SecoursPopulaire_9.js"></script>
+        <script src="data/SecoursCatholique_10.js"></script>
+        <script src="data/CroixRouge_11.js"></script>
+        <script src="data/AssociationspartenairesBA76_12.js"></script>
+        <script src="data/Cache_13.js"></script>
+        <script src="data/BanquesAlimentairesSeineMaritime_14.js"></script>
+        <script src="data/EPCISeineMaritime_15.js"></script>
+        <script src="data/Dpartement_16.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[49.284802720019144,0.03244148003361311],[50.005049389393,2.0146864458757556]]);
+        }).fitBounds([[49.279895378137574,-0.11691803241533695],[50.01672577705514,2.027832735104088]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -100,14 +107,14 @@
         });
         layer_GoogleRoad_0;
         map.addLayer(layer_GoogleRoad_0);
-        function pop_Risquedeprcaritalimentaire76copier_1(feature, layer) {
+        function pop_Risquedeprcaritalimentaire76_1(feature, layer) {
         }
 
-        function style_Risquedeprcaritalimentaire76copier_1_0(feature) {
+        function style_Risquedeprcaritalimentaire76_1_0(feature) {
             switch(String(feature.properties['q2wHide_jenks_cu_1'])) {
                 case '1 - Le plus bas':
                     return {
-                pane: 'pane_Risquedeprcaritalimentaire76copier_1',
+                pane: 'pane_Risquedeprcaritalimentaire76_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
                 dashArray: '',
@@ -116,13 +123,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(43,131,186,0.95)',
+                fillColor: 'rgba(43,131,186,0.75)',
                 interactive: true,
             }
                     break;
                 case '2 - Bas':
                     return {
-                pane: 'pane_Risquedeprcaritalimentaire76copier_1',
+                pane: 'pane_Risquedeprcaritalimentaire76_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
                 dashArray: '',
@@ -131,13 +138,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(171,221,164,0.95)',
+                fillColor: 'rgba(171,221,164,0.75)',
                 interactive: true,
             }
                     break;
                 case '3 - Moyen':
                     return {
-                pane: 'pane_Risquedeprcaritalimentaire76copier_1',
+                pane: 'pane_Risquedeprcaritalimentaire76_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
                 dashArray: '',
@@ -146,13 +153,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,191,0.95)',
+                fillColor: 'rgba(255,255,191,0.75)',
                 interactive: true,
             }
                     break;
                 case '4 - Elevé':
                     return {
-                pane: 'pane_Risquedeprcaritalimentaire76copier_1',
+                pane: 'pane_Risquedeprcaritalimentaire76_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
                 dashArray: '',
@@ -161,13 +168,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(253,174,97,0.95)',
+                fillColor: 'rgba(253,174,97,0.75)',
                 interactive: true,
             }
                     break;
                 case '5 - Le plus élevé':
                     return {
-                pane: 'pane_Risquedeprcaritalimentaire76copier_1',
+                pane: 'pane_Risquedeprcaritalimentaire76_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
                 dashArray: '',
@@ -176,26 +183,26 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(251,7,13,0.95)',
+                fillColor: 'rgba(251,7,13,0.75)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_Risquedeprcaritalimentaire76copier_1');
-        map.getPane('pane_Risquedeprcaritalimentaire76copier_1').style.zIndex = 401;
-        map.getPane('pane_Risquedeprcaritalimentaire76copier_1').style['mix-blend-mode'] = 'normal';
-        var layer_Risquedeprcaritalimentaire76copier_1 = new L.geoJson(json_Risquedeprcaritalimentaire76copier_1, {
+        map.createPane('pane_Risquedeprcaritalimentaire76_1');
+        map.getPane('pane_Risquedeprcaritalimentaire76_1').style.zIndex = 401;
+        map.getPane('pane_Risquedeprcaritalimentaire76_1').style['mix-blend-mode'] = 'normal';
+        var layer_Risquedeprcaritalimentaire76_1 = new L.geoJson(json_Risquedeprcaritalimentaire76_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Risquedeprcaritalimentaire76copier_1',
-            layerName: 'layer_Risquedeprcaritalimentaire76copier_1',
-            pane: 'pane_Risquedeprcaritalimentaire76copier_1',
-            onEachFeature: pop_Risquedeprcaritalimentaire76copier_1,
-            style: style_Risquedeprcaritalimentaire76copier_1_0,
+            dataVar: 'json_Risquedeprcaritalimentaire76_1',
+            layerName: 'layer_Risquedeprcaritalimentaire76_1',
+            pane: 'pane_Risquedeprcaritalimentaire76_1',
+            onEachFeature: pop_Risquedeprcaritalimentaire76_1,
+            style: style_Risquedeprcaritalimentaire76_1_0,
         });
-        bounds_group.addLayer(layer_Risquedeprcaritalimentaire76copier_1);
-        map.addLayer(layer_Risquedeprcaritalimentaire76copier_1);
+        bounds_group.addLayer(layer_Risquedeprcaritalimentaire76_1);
+        map.addLayer(layer_Risquedeprcaritalimentaire76_1);
         function pop_Communes_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -256,19 +263,22 @@
         });
         bounds_group.addLayer(layer_Communes_2);
         map.addLayer(layer_Communes_2);
-        function pop_EPCISeineMaritime_3(feature, layer) {
+        function pop_CommunesdesserviesEI2R_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td class="visible-with-data" id="CODE_DEPT"colspan="2"><strong>Departement</strong><br />' + (feature.properties['CODE_DEPT'] !== null ? autolinker.link(feature.properties['CODE_DEPT'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="jenks_cut_"colspan="2"><strong>Risque de précarité alimentaire (nat)</strong><br />' + (feature.properties['jenks_cut_'] !== null ? autolinker.link(feature.properties['jenks_cut_'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="POPULATION"colspan="2"><strong>POPULATION</strong><br />' + (feature.properties['POPULATION'] !== null ? autolinker.link(feature.properties['POPULATION'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="jenks_cu_1"colspan="2"><strong>Risque de précarité alimentaire (dep)</strong><br />' + (feature.properties['jenks_cu_1'] !== null ? autolinker.link(feature.properties['jenks_cu_1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="SOCIALE"colspan="2"><strong>EPCI</strong><br />' + (feature.properties['SOCIALE'] !== null ? autolinker.link(feature.properties['SOCIALE'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Population"colspan="2"><strong>Population</strong><br />' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="JURIDIQUE"colspan="2"><strong>Type</strong><br />' + (feature.properties['JURIDIQUE'] !== null ? autolinker.link(feature.properties['JURIDIQUE'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Zone"colspan="2"><strong>Zone - EI2R</strong><br />' + (feature.properties['Zone'] !== null ? autolinker.link(feature.properties['Zone'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Communes"colspan="2"><strong>Communes desservies - EI2R</strong><br />' + (feature.properties['Communes'] !== null ? autolinker.link(feature.properties['Communes'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -278,85 +288,83 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EPCISeineMaritime_3_0() {
+        function style_CommunesdesserviesEI2R_3_0() {
             return {
-                pane: 'pane_EPCISeineMaritime_3',
+                pane: 'pane_CommunesdesserviesEI2R_3',
                 opacity: 1,
-                color: 'rgba(14,57,252,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(183,72,75,0.0)',
-                interactive: false,
-            }
-        }
-        map.createPane('pane_EPCISeineMaritime_3');
-        map.getPane('pane_EPCISeineMaritime_3').style.zIndex = 403;
-        map.getPane('pane_EPCISeineMaritime_3').style['mix-blend-mode'] = 'normal';
-        var layer_EPCISeineMaritime_3 = new L.geoJson(json_EPCISeineMaritime_3, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_EPCISeineMaritime_3',
-            layerName: 'layer_EPCISeineMaritime_3',
-            pane: 'pane_EPCISeineMaritime_3',
-            onEachFeature: pop_EPCISeineMaritime_3,
-            style: style_EPCISeineMaritime_3_0,
-        });
-        bounds_group.addLayer(layer_EPCISeineMaritime_3);
-        map.addLayer(layer_EPCISeineMaritime_3);
-        function pop_Dpartement_4(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="id"colspan="2"><strong>id</strong><br />' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="dep"colspan="2"><strong>dep</strong><br />' + (feature.properties['dep'] !== null ? autolinker.link(feature.properties['dep'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="reg"colspan="2"><strong>reg</strong><br />' + (feature.properties['reg'] !== null ? autolinker.link(feature.properties['reg'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="libgeo"colspan="2"><strong>libgeo</strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Dpartement_4_0() {
-            return {
-                pane: 'pane_Dpartement_4',
-                opacity: 1,
-                color: 'rgba(228,26,28,1.0)',
+                color: 'rgba(0,0,0,0.9)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 4.0,
+                weight: 2.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
-        map.createPane('pane_Dpartement_4');
-        map.getPane('pane_Dpartement_4').style.zIndex = 404;
-        map.getPane('pane_Dpartement_4').style['mix-blend-mode'] = 'normal';
-        var layer_Dpartement_4 = new L.geoJson(json_Dpartement_4, {
+        map.createPane('pane_CommunesdesserviesEI2R_3');
+        map.getPane('pane_CommunesdesserviesEI2R_3').style.zIndex = 403;
+        map.getPane('pane_CommunesdesserviesEI2R_3').style['mix-blend-mode'] = 'normal';
+        var layer_CommunesdesserviesEI2R_3 = new L.geoJson(json_CommunesdesserviesEI2R_3, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_Dpartement_4',
-            layerName: 'layer_Dpartement_4',
-            pane: 'pane_Dpartement_4',
-            onEachFeature: pop_Dpartement_4,
-            style: style_Dpartement_4_0,
+            interactive: true,
+            dataVar: 'json_CommunesdesserviesEI2R_3',
+            layerName: 'layer_CommunesdesserviesEI2R_3',
+            pane: 'pane_CommunesdesserviesEI2R_3',
+            onEachFeature: pop_CommunesdesserviesEI2R_3,
+            style: style_CommunesdesserviesEI2R_3_0,
         });
-        bounds_group.addLayer(layer_Dpartement_4);
-        map.addLayer(layer_Dpartement_4);
-        function pop_RestoduCoeurcommunesdesservies_5(feature, layer) {
+        bounds_group.addLayer(layer_CommunesdesserviesEI2R_3);
+        function pop_PointsdarrtEI2R_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="Zone"colspan="2"><strong>Zone - EI2R</strong><br />' + (feature.properties['Zone'] !== null ? autolinker.link(feature.properties['Zone'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Communes"colspan="2"><strong>Communes</strong><br />' + (feature.properties['Communes'] !== null ? autolinker.link(feature.properties['Communes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Arret"colspan="2"><strong>Arret - EI2R</strong><br />' + (feature.properties['Arret'] !== null ? autolinker.link(feature.properties['Arret'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_PointsdarrtEI2R_4_0() {
+            return {
+                pane: 'pane_PointsdarrtEI2R_4',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/PointsdarrtEI2R_4.svg',
+            iconSize: [15.959999999999999, 15.959999999999999]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PointsdarrtEI2R_4');
+        map.getPane('pane_PointsdarrtEI2R_4').style.zIndex = 404;
+        map.getPane('pane_PointsdarrtEI2R_4').style['mix-blend-mode'] = 'normal';
+        var layer_PointsdarrtEI2R_4 = new L.geoJson(json_PointsdarrtEI2R_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PointsdarrtEI2R_4',
+            layerName: 'layer_PointsdarrtEI2R_4',
+            pane: 'pane_PointsdarrtEI2R_4',
+            onEachFeature: pop_PointsdarrtEI2R_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_PointsdarrtEI2R_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PointsdarrtEI2R_4);
+        function pop_CommunesdesserviesRestoduCoeur_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="libgeo"colspan="2"><strong>Communes desservies</strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
@@ -387,53 +395,53 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RestoduCoeurcommunesdesservies_5_0(feature) {
+        function style_CommunesdesserviesRestoduCoeur_5_0(feature) {
             switch(String(feature.properties['q2wHide_Infos'])) {
-                case 'Communes desservies par le centre itinérant':
+                case 'Communes desservies par le centre de distribution':
                     return {
-                pane: 'pane_RestoduCoeurcommunesdesservies_5',
+                pane: 'pane_CommunesdesserviesRestoduCoeur_5',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.7)',
+                color: 'rgba(153,80,119,0.9)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1, 
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(192,32,152,0.7)',
+                fillColor: 'rgba(226,205,243,0.9)',
                 interactive: true,
             }
                     break;
-                case 'Communes desservies par le centre de distribution':
+                case 'Communes desservies par le centre itinérant':
                     return {
-                pane: 'pane_RestoduCoeurcommunesdesservies_5',
+                pane: 'pane_CommunesdesserviesRestoduCoeur_5',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.7)',
+                color: 'rgba(153,80,119,0.9)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1, 
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(243,10,92,0.7)',
+                fillColor: 'rgba(192,32,152,0.9)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_RestoduCoeurcommunesdesservies_5');
-        map.getPane('pane_RestoduCoeurcommunesdesservies_5').style.zIndex = 405;
-        map.getPane('pane_RestoduCoeurcommunesdesservies_5').style['mix-blend-mode'] = 'normal';
-        var layer_RestoduCoeurcommunesdesservies_5 = new L.geoJson(json_RestoduCoeurcommunesdesservies_5, {
+        map.createPane('pane_CommunesdesserviesRestoduCoeur_5');
+        map.getPane('pane_CommunesdesserviesRestoduCoeur_5').style.zIndex = 405;
+        map.getPane('pane_CommunesdesserviesRestoduCoeur_5').style['mix-blend-mode'] = 'normal';
+        var layer_CommunesdesserviesRestoduCoeur_5 = new L.geoJson(json_CommunesdesserviesRestoduCoeur_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RestoduCoeurcommunesdesservies_5',
-            layerName: 'layer_RestoduCoeurcommunesdesservies_5',
-            pane: 'pane_RestoduCoeurcommunesdesservies_5',
-            onEachFeature: pop_RestoduCoeurcommunesdesservies_5,
-            style: style_RestoduCoeurcommunesdesservies_5_0,
+            dataVar: 'json_CommunesdesserviesRestoduCoeur_5',
+            layerName: 'layer_CommunesdesserviesRestoduCoeur_5',
+            pane: 'pane_CommunesdesserviesRestoduCoeur_5',
+            onEachFeature: pop_CommunesdesserviesRestoduCoeur_5,
+            style: style_CommunesdesserviesRestoduCoeur_5_0,
         });
-        bounds_group.addLayer(layer_RestoduCoeurcommunesdesservies_5);
+        bounds_group.addLayer(layer_CommunesdesserviesRestoduCoeur_5);
         function pop_EntreptrgionalRestoduCoeur_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -496,7 +504,7 @@
             },
         });
         bounds_group.addLayer(layer_EntreptrgionalRestoduCoeur_6);
-        function pop_CentresdedistributionRestoduCoeur_7(feature, layer) {
+        function pop_CentrededistributionRestoduCoeur_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Communes"colspan="2"><strong>Commune</strong><br />' + (feature.properties['Communes'] !== null ? autolinker.link(feature.properties['Communes'].toLocaleString()) : '') + '</td>\
@@ -527,37 +535,37 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CentresdedistributionRestoduCoeur_7_0() {
+        function style_CentrededistributionRestoduCoeur_7_0() {
             return {
-                pane: 'pane_CentresdedistributionRestoduCoeur_7',
+                pane: 'pane_CentrededistributionRestoduCoeur_7',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/CentresdedistributionRestoduCoeur_7.svg',
+            iconUrl: 'markers/CentrededistributionRestoduCoeur_7.svg',
             iconSize: [22.799999999999997, 22.799999999999997]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_CentresdedistributionRestoduCoeur_7');
-        map.getPane('pane_CentresdedistributionRestoduCoeur_7').style.zIndex = 407;
-        map.getPane('pane_CentresdedistributionRestoduCoeur_7').style['mix-blend-mode'] = 'normal';
-        var layer_CentresdedistributionRestoduCoeur_7 = new L.geoJson(json_CentresdedistributionRestoduCoeur_7, {
+        map.createPane('pane_CentrededistributionRestoduCoeur_7');
+        map.getPane('pane_CentrededistributionRestoduCoeur_7').style.zIndex = 407;
+        map.getPane('pane_CentrededistributionRestoduCoeur_7').style['mix-blend-mode'] = 'normal';
+        var layer_CentrededistributionRestoduCoeur_7 = new L.geoJson(json_CentrededistributionRestoduCoeur_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CentresdedistributionRestoduCoeur_7',
-            layerName: 'layer_CentresdedistributionRestoduCoeur_7',
-            pane: 'pane_CentresdedistributionRestoduCoeur_7',
-            onEachFeature: pop_CentresdedistributionRestoduCoeur_7,
+            dataVar: 'json_CentrededistributionRestoduCoeur_7',
+            layerName: 'layer_CentrededistributionRestoduCoeur_7',
+            pane: 'pane_CentrededistributionRestoduCoeur_7',
+            onEachFeature: pop_CentrededistributionRestoduCoeur_7,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_CentresdedistributionRestoduCoeur_7_0(feature));
+                return L.marker(latlng, style_CentrededistributionRestoduCoeur_7_0(feature));
             },
         });
-        bounds_group.addLayer(layer_CentresdedistributionRestoduCoeur_7);
+        bounds_group.addLayer(layer_CentrededistributionRestoduCoeur_7);
         function pop_ArretsCamionitinrantRestoduCoeur_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -620,7 +628,187 @@
             },
         });
         bounds_group.addLayer(layer_ArretsCamionitinrantRestoduCoeur_8);
-        function pop_AssociationspartenairesBA76_9(feature, layer) {
+        function pop_SecoursPopulaire_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nom de la"colspan="2"><strong>Structure</strong><br />' + (feature.properties['Nom de la'] !== null ? autolinker.link(feature.properties['Nom de la'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Adresse po"colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse po'] !== null ? autolinker.link(feature.properties['Adresse po'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Code Posta'] !== null ? autolinker.link(feature.properties['Code Posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Email"colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Téléphon"colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_SecoursPopulaire_9_0() {
+            return {
+                pane: 'pane_SecoursPopulaire_9',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/SecoursPopulaire_9.svg',
+            iconSize: [16.72, 16.72]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SecoursPopulaire_9');
+        map.getPane('pane_SecoursPopulaire_9').style.zIndex = 409;
+        map.getPane('pane_SecoursPopulaire_9').style['mix-blend-mode'] = 'normal';
+        var layer_SecoursPopulaire_9 = new L.geoJson(json_SecoursPopulaire_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SecoursPopulaire_9',
+            layerName: 'layer_SecoursPopulaire_9',
+            pane: 'pane_SecoursPopulaire_9',
+            onEachFeature: pop_SecoursPopulaire_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_SecoursPopulaire_9_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SecoursPopulaire_9);
+        function pop_SecoursCatholique_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nom de la"colspan="2"><strong>Association</strong><br />' + (feature.properties['Nom de la'] !== null ? autolinker.link(feature.properties['Nom de la'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Adresse po"colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse po'] !== null ? autolinker.link(feature.properties['Adresse po'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ville"colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Code Posta'] !== null ? autolinker.link(feature.properties['Code Posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Email"colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Téléphon"colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_SecoursCatholique_10_0() {
+            return {
+                pane: 'pane_SecoursCatholique_10',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/SecoursCatholique_10.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SecoursCatholique_10');
+        map.getPane('pane_SecoursCatholique_10').style.zIndex = 410;
+        map.getPane('pane_SecoursCatholique_10').style['mix-blend-mode'] = 'normal';
+        var layer_SecoursCatholique_10 = new L.geoJson(json_SecoursCatholique_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SecoursCatholique_10',
+            layerName: 'layer_SecoursCatholique_10',
+            pane: 'pane_SecoursCatholique_10',
+            onEachFeature: pop_SecoursCatholique_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_SecoursCatholique_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SecoursCatholique_10);
+        function pop_CroixRouge_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nom de la"colspan="2"><strong>Structure</strong><br />' + (feature.properties['Nom de la'] !== null ? autolinker.link(feature.properties['Nom de la'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Adresse po"colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse po'] !== null ? autolinker.link(feature.properties['Adresse po'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Ville'] !== null ? autolinker.link(feature.properties['Ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Code Posta'] !== null ? autolinker.link(feature.properties['Code Posta'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Email"colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Téléphon"colspan="2"><strong>Tel</strong><br />' + (feature.properties['Téléphon'] !== null ? autolinker.link(feature.properties['Téléphon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Infos"colspan="2"><strong>Infos</strong><br />' + (feature.properties['Infos'] !== null ? autolinker.link(feature.properties['Infos'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CroixRouge_11_0() {
+            return {
+                pane: 'pane_CroixRouge_11',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/CroixRouge_11.svg',
+            iconSize: [15.2, 15.2]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CroixRouge_11');
+        map.getPane('pane_CroixRouge_11').style.zIndex = 411;
+        map.getPane('pane_CroixRouge_11').style['mix-blend-mode'] = 'normal';
+        var layer_CroixRouge_11 = new L.geoJson(json_CroixRouge_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CroixRouge_11',
+            layerName: 'layer_CroixRouge_11',
+            pane: 'pane_CroixRouge_11',
+            onEachFeature: pop_CroixRouge_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_CroixRouge_11_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CroixRouge_11);
+        function pop_AssociationspartenairesBA76_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Asso"colspan="2"><strong>Association</strong><br />' + (feature.properties['Asso'] !== null ? autolinker.link(feature.properties['Asso'].toLocaleString()) : '') + '</td>\
@@ -634,6 +822,9 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['commune'] !== null ? autolinker.link(feature.properties['commune'].toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Infos"colspan="2"><strong>Infos</strong><br />' + (feature.properties['Infos'] !== null ? autolinker.link(feature.properties['Infos'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -642,140 +833,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_AssociationspartenairesBA76_9_0() {
+        function style_AssociationspartenairesBA76_12_0() {
             return {
-                pane: 'pane_AssociationspartenairesBA76_9',
+                pane: 'pane_AssociationspartenairesBA76_12',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/AssociationspartenairesBA76_9.svg',
-            iconSize: [15.200000000000003, 15.200000000000003]
+            iconUrl: 'markers/AssociationspartenairesBA76_12.svg',
+            iconSize: [15.2, 15.2]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_AssociationspartenairesBA76_9');
-        map.getPane('pane_AssociationspartenairesBA76_9').style.zIndex = 409;
-        map.getPane('pane_AssociationspartenairesBA76_9').style['mix-blend-mode'] = 'normal';
-        var layer_AssociationspartenairesBA76_9 = new L.geoJson(json_AssociationspartenairesBA76_9, {
+        map.createPane('pane_AssociationspartenairesBA76_12');
+        map.getPane('pane_AssociationspartenairesBA76_12').style.zIndex = 412;
+        map.getPane('pane_AssociationspartenairesBA76_12').style['mix-blend-mode'] = 'normal';
+        var layer_AssociationspartenairesBA76_12 = new L.geoJson(json_AssociationspartenairesBA76_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_AssociationspartenairesBA76_9',
-            layerName: 'layer_AssociationspartenairesBA76_9',
-            pane: 'pane_AssociationspartenairesBA76_9',
-            onEachFeature: pop_AssociationspartenairesBA76_9,
+            dataVar: 'json_AssociationspartenairesBA76_12',
+            layerName: 'layer_AssociationspartenairesBA76_12',
+            pane: 'pane_AssociationspartenairesBA76_12',
+            onEachFeature: pop_AssociationspartenairesBA76_12,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_AssociationspartenairesBA76_9_0(feature));
+                return L.marker(latlng, style_AssociationspartenairesBA76_12_0(feature));
             },
         });
-        bounds_group.addLayer(layer_AssociationspartenairesBA76_9);
-        map.addLayer(layer_AssociationspartenairesBA76_9);
-        function pop_CommunesEI2R_10(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="jenks_cut_"colspan="2"><strong>Risque de précarité alimentaire (nat)</strong><br />' + (feature.properties['jenks_cut_'] !== null ? autolinker.link(feature.properties['jenks_cut_'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="jenks_cu_1"colspan="2"><strong>Risque de précarité alimentaire (dep)</strong><br />' + (feature.properties['jenks_cu_1'] !== null ? autolinker.link(feature.properties['jenks_cu_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Population"colspan="2"><strong>Population</strong><br />' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Zone"colspan="2"><strong>Zone - EI2R</strong><br />' + (feature.properties['Zone'] !== null ? autolinker.link(feature.properties['Zone'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Communes"colspan="2"><strong>Communes desservies - EI2R</strong><br />' + (feature.properties['Communes'] !== null ? autolinker.link(feature.properties['Communes'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_CommunesEI2R_10_0() {
-            return {
-                pane: 'pane_CommunesEI2R_10',
-                opacity: 1,
-                color: 'rgba(0,0,0,0.9)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_CommunesEI2R_10');
-        map.getPane('pane_CommunesEI2R_10').style.zIndex = 410;
-        map.getPane('pane_CommunesEI2R_10').style['mix-blend-mode'] = 'normal';
-        var layer_CommunesEI2R_10 = new L.geoJson(json_CommunesEI2R_10, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_CommunesEI2R_10',
-            layerName: 'layer_CommunesEI2R_10',
-            pane: 'pane_CommunesEI2R_10',
-            onEachFeature: pop_CommunesEI2R_10,
-            style: style_CommunesEI2R_10_0,
-        });
-        bounds_group.addLayer(layer_CommunesEI2R_10);
-        function pop_PointsdarrtEI2Rcopier_11(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="Zone"colspan="2"><strong>Zone - EI2R</strong><br />' + (feature.properties['Zone'] !== null ? autolinker.link(feature.properties['Zone'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Communes"colspan="2"><strong>Communes</strong><br />' + (feature.properties['Communes'] !== null ? autolinker.link(feature.properties['Communes'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Arret"colspan="2"><strong>Arret - EI2R</strong><br />' + (feature.properties['Arret'] !== null ? autolinker.link(feature.properties['Arret'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_PointsdarrtEI2Rcopier_11_0() {
-            return {
-                pane: 'pane_PointsdarrtEI2Rcopier_11',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/PointsdarrtEI2Rcopier_11.svg',
-            iconSize: [15.959999999999999, 15.959999999999999]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_PointsdarrtEI2Rcopier_11');
-        map.getPane('pane_PointsdarrtEI2Rcopier_11').style.zIndex = 411;
-        map.getPane('pane_PointsdarrtEI2Rcopier_11').style['mix-blend-mode'] = 'normal';
-        var layer_PointsdarrtEI2Rcopier_11 = new L.geoJson(json_PointsdarrtEI2Rcopier_11, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_PointsdarrtEI2Rcopier_11',
-            layerName: 'layer_PointsdarrtEI2Rcopier_11',
-            pane: 'pane_PointsdarrtEI2Rcopier_11',
-            onEachFeature: pop_PointsdarrtEI2Rcopier_11,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_PointsdarrtEI2Rcopier_11_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_PointsdarrtEI2Rcopier_11);
-        function pop_Cache_12(feature, layer) {
+        bounds_group.addLayer(layer_AssociationspartenairesBA76_12);
+        map.addLayer(layer_AssociationspartenairesBA76_12);
+        function pop_Cache_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="CODE_DEPT"colspan="2"><strong>Département</strong><br />' + (feature.properties['CODE_DEPT'] !== null ? autolinker.link(feature.properties['CODE_DEPT'].toLocaleString()) : '') + '</td>\
@@ -797,9 +887,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Cache_12_0() {
+        function style_Cache_13_0() {
             return {
-                pane: 'pane_Cache_12',
+                pane: 'pane_Cache_13',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
                 dashArray: '',
@@ -812,21 +902,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Cache_12');
-        map.getPane('pane_Cache_12').style.zIndex = 412;
-        map.getPane('pane_Cache_12').style['mix-blend-mode'] = 'normal';
-        var layer_Cache_12 = new L.geoJson(json_Cache_12, {
+        map.createPane('pane_Cache_13');
+        map.getPane('pane_Cache_13').style.zIndex = 413;
+        map.getPane('pane_Cache_13').style['mix-blend-mode'] = 'normal';
+        var layer_Cache_13 = new L.geoJson(json_Cache_13, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Cache_12',
-            layerName: 'layer_Cache_12',
-            pane: 'pane_Cache_12',
-            onEachFeature: pop_Cache_12,
-            style: style_Cache_12_0,
+            dataVar: 'json_Cache_13',
+            layerName: 'layer_Cache_13',
+            pane: 'pane_Cache_13',
+            onEachFeature: pop_Cache_13,
+            style: style_Cache_13_0,
         });
-        bounds_group.addLayer(layer_Cache_12);
-        map.addLayer(layer_Cache_12);
-        function pop_BanquesAlimentairesSeineMaritime_13(feature, layer) {
+        bounds_group.addLayer(layer_Cache_13);
+        map.addLayer(layer_Cache_13);
+        function pop_BanquesAlimentairesSeineMaritime_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="BANQUES AL"colspan="2"><strong>BANQUES AL</strong><br />' + (feature.properties['BANQUES AL'] !== null ? autolinker.link(feature.properties['BANQUES AL'].toLocaleString()) : '') + '</td>\
@@ -854,53 +944,165 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_BanquesAlimentairesSeineMaritime_13_0() {
+        function style_BanquesAlimentairesSeineMaritime_14_0() {
             return {
-                pane: 'pane_BanquesAlimentairesSeineMaritime_13',
+                pane: 'pane_BanquesAlimentairesSeineMaritime_14',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/BanquesAlimentairesSeineMaritime_13.svg',
+            iconUrl: 'markers/BanquesAlimentairesSeineMaritime_14.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_BanquesAlimentairesSeineMaritime_13');
-        map.getPane('pane_BanquesAlimentairesSeineMaritime_13').style.zIndex = 413;
-        map.getPane('pane_BanquesAlimentairesSeineMaritime_13').style['mix-blend-mode'] = 'normal';
-        var layer_BanquesAlimentairesSeineMaritime_13 = new L.geoJson(json_BanquesAlimentairesSeineMaritime_13, {
+        map.createPane('pane_BanquesAlimentairesSeineMaritime_14');
+        map.getPane('pane_BanquesAlimentairesSeineMaritime_14').style.zIndex = 414;
+        map.getPane('pane_BanquesAlimentairesSeineMaritime_14').style['mix-blend-mode'] = 'normal';
+        var layer_BanquesAlimentairesSeineMaritime_14 = new L.geoJson(json_BanquesAlimentairesSeineMaritime_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_BanquesAlimentairesSeineMaritime_13',
-            layerName: 'layer_BanquesAlimentairesSeineMaritime_13',
-            pane: 'pane_BanquesAlimentairesSeineMaritime_13',
-            onEachFeature: pop_BanquesAlimentairesSeineMaritime_13,
+            dataVar: 'json_BanquesAlimentairesSeineMaritime_14',
+            layerName: 'layer_BanquesAlimentairesSeineMaritime_14',
+            pane: 'pane_BanquesAlimentairesSeineMaritime_14',
+            onEachFeature: pop_BanquesAlimentairesSeineMaritime_14,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_BanquesAlimentairesSeineMaritime_13_0(feature));
+                return L.marker(latlng, style_BanquesAlimentairesSeineMaritime_14_0(feature));
             },
         });
-        bounds_group.addLayer(layer_BanquesAlimentairesSeineMaritime_13);
-        map.addLayer(layer_BanquesAlimentairesSeineMaritime_13);
+        bounds_group.addLayer(layer_BanquesAlimentairesSeineMaritime_14);
+        map.addLayer(layer_BanquesAlimentairesSeineMaritime_14);
+        function pop_EPCISeineMaritime_15(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="CODE_DEPT"colspan="2"><strong>Departement</strong><br />' + (feature.properties['CODE_DEPT'] !== null ? autolinker.link(feature.properties['CODE_DEPT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="POPULATION"colspan="2"><strong>POPULATION</strong><br />' + (feature.properties['POPULATION'] !== null ? autolinker.link(feature.properties['POPULATION'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="SOCIALE"colspan="2"><strong>EPCI</strong><br />' + (feature.properties['SOCIALE'] !== null ? autolinker.link(feature.properties['SOCIALE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="JURIDIQUE"colspan="2"><strong>Type</strong><br />' + (feature.properties['JURIDIQUE'] !== null ? autolinker.link(feature.properties['JURIDIQUE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_EPCISeineMaritime_15_0() {
+            return {
+                pane: 'pane_EPCISeineMaritime_15',
+                opacity: 1,
+                color: 'rgba(14,57,252,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,72,75,0.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_EPCISeineMaritime_15');
+        map.getPane('pane_EPCISeineMaritime_15').style.zIndex = 415;
+        map.getPane('pane_EPCISeineMaritime_15').style['mix-blend-mode'] = 'normal';
+        var layer_EPCISeineMaritime_15 = new L.geoJson(json_EPCISeineMaritime_15, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_EPCISeineMaritime_15',
+            layerName: 'layer_EPCISeineMaritime_15',
+            pane: 'pane_EPCISeineMaritime_15',
+            onEachFeature: pop_EPCISeineMaritime_15,
+            style: style_EPCISeineMaritime_15_0,
+        });
+        bounds_group.addLayer(layer_EPCISeineMaritime_15);
+        function pop_Dpartement_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="id"colspan="2"><strong>id</strong><br />' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="dep"colspan="2"><strong>dep</strong><br />' + (feature.properties['dep'] !== null ? autolinker.link(feature.properties['dep'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="reg"colspan="2"><strong>reg</strong><br />' + (feature.properties['reg'] !== null ? autolinker.link(feature.properties['reg'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="libgeo"colspan="2"><strong>libgeo</strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Dpartement_16_0() {
+            return {
+                pane: 'pane_Dpartement_16',
+                opacity: 1,
+                color: 'rgba(228,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_Dpartement_16');
+        map.getPane('pane_Dpartement_16').style.zIndex = 416;
+        map.getPane('pane_Dpartement_16').style['mix-blend-mode'] = 'normal';
+        var layer_Dpartement_16 = new L.geoJson(json_Dpartement_16, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Dpartement_16',
+            layerName: 'layer_Dpartement_16',
+            pane: 'pane_Dpartement_16',
+            onEachFeature: pop_Dpartement_16,
+            style: style_Dpartement_16_0,
+        });
+        bounds_group.addLayer(layer_Dpartement_16);
+        map.addLayer(layer_Dpartement_16);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
         var baseMaps = {};
         var overlaysTree = [
-            {label: '<img src="legend/BanquesAlimentairesSeineMaritime_13.png" /> Banques Alimentaires (Seine Maritime)', layer: layer_BanquesAlimentairesSeineMaritime_13},
-            {label: '<img src="legend/Cache_12.png" /> Cache', layer: layer_Cache_12},
-            {label: '<img src="legend/PointsdarrtEI2Rcopier_11.png" /> Points d\'arrêt EI2R copier', layer: layer_PointsdarrtEI2Rcopier_11},
-            {label: '<img src="legend/CommunesEI2R_10.png" /> Communes EI2R', layer: layer_CommunesEI2R_10},
-            {label: '<img src="legend/AssociationspartenairesBA76_9.png" /> Associations partenaires (BA76)', layer: layer_AssociationspartenairesBA76_9},
-            {label: '<img src="legend/ArretsCamionitinrantRestoduCoeur_8.png" /> Arrets - Camion itinérant -Resto du Coeur', layer: layer_ArretsCamionitinrantRestoduCoeur_8},
-            {label: '<img src="legend/CentresdedistributionRestoduCoeur_7.png" /> Centres de distribution - Resto du Coeur', layer: layer_CentresdedistributionRestoduCoeur_7},
+            {label: '<img src="legend/Dpartement_16.png" /> Département', layer: layer_Dpartement_16},
+            {label: '<img src="legend/EPCISeineMaritime_15.png" /> EPCI Seine Maritime', layer: layer_EPCISeineMaritime_15},
+            {label: '<img src="legend/BanquesAlimentairesSeineMaritime_14.png" /> Banques Alimentaires (Seine Maritime)', layer: layer_BanquesAlimentairesSeineMaritime_14},
+            {label: '<img src="legend/Cache_13.png" /> Cache', layer: layer_Cache_13},
+            {label: '<img src="legend/AssociationspartenairesBA76_12.png" /> Associations partenaires - BA76', layer: layer_AssociationspartenairesBA76_12},
+            {label: '<img src="legend/CroixRouge_11.png" /> Croix-Rouge', layer: layer_CroixRouge_11},
+            {label: '<img src="legend/SecoursCatholique_10.png" /> Secours Catholique', layer: layer_SecoursCatholique_10},
+            {label: '<img src="legend/SecoursPopulaire_9.png" /> Secours Populaire', layer: layer_SecoursPopulaire_9},
+            {label: '<img src="legend/ArretsCamionitinrantRestoduCoeur_8.png" /> Arrets - Camion itinérant - Resto du Coeur', layer: layer_ArretsCamionitinrantRestoduCoeur_8},
+            {label: '<img src="legend/CentrededistributionRestoduCoeur_7.png" /> Centre de distribution - Resto du Coeur ', layer: layer_CentrededistributionRestoduCoeur_7},
             {label: '<img src="legend/EntreptrgionalRestoduCoeur_6.png" /> Entrepôt régional - Resto du Coeur', layer: layer_EntreptrgionalRestoduCoeur_6},
-            {label: 'Resto du Coeur - communes desservies<br /><table><tr><td style="text-align: center;"><img src="legend/RestoduCoeurcommunesdesservies_5_Communesdesserviesparlecentreitinérant0.png" /></td><td>Communes desservies par le centre itinérant</td></tr><tr><td style="text-align: center;"><img src="legend/RestoduCoeurcommunesdesservies_5_Communesdesserviesparlecentrededistribution1.png" /></td><td>Communes desservies par le centre de distribution</td></tr></table>', layer: layer_RestoduCoeurcommunesdesservies_5},
-            {label: '<img src="legend/Dpartement_4.png" /> Département', layer: layer_Dpartement_4},
-            {label: '<img src="legend/EPCISeineMaritime_3.png" /> EPCI Seine Maritime', layer: layer_EPCISeineMaritime_3},
+            {label: 'Communes desservies - Resto du Coeur<br /><table><tr><td style="text-align: center;"><img src="legend/CommunesdesserviesRestoduCoeur_5_Communesdesserviesparuncentrededistribution0.png" /></td><td>Communes desservies par un centre de distribution</td></tr><tr><td style="text-align: center;"><img src="legend/CommunesdesserviesRestoduCoeur_5_Communesdesserviesparlecentreitinérant1.png" /></td><td>Communes desservies par le centre itinérant</td></tr></table>', layer: layer_CommunesdesserviesRestoduCoeur_5},
+            {label: '<img src="legend/PointsdarrtEI2R_4.png" /> Points d\'arrêt - EI2R ', layer: layer_PointsdarrtEI2R_4},
+            {label: '<img src="legend/CommunesdesserviesEI2R_3.png" /> Communes desservies - EI2R', layer: layer_CommunesdesserviesEI2R_3},
             {label: '<img src="legend/Communes_2.png" /> Communes ', layer: layer_Communes_2},
-            {label: 'Risque de précarité alimentaire (76) copier<br /><table><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76copier_1_1Leplusbas0.png" /></td><td>1 - Le plus bas</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76copier_1_2Bas1.png" /></td><td>2 - Bas</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76copier_1_3Moyen2.png" /></td><td>3 - Moyen</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76copier_1_4Elevé3.png" /></td><td>4 - Elevé</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76copier_1_5Leplusélevé4.png" /></td><td>5 - Le plus élevé</td></tr></table>', layer: layer_Risquedeprcaritalimentaire76copier_1},
+            {label: 'Risque de précarité alimentaire (76) <br /><table><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_1Leplusbas0.png" /></td><td>1 - Le plus bas</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_2Bas1.png" /></td><td>2 - Bas</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_3Moyen2.png" /></td><td>3 - Moyen</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_4Elevé3.png" /></td><td>4 - Elevé</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_5Leplusélevé4.png" /></td><td>5 - Le plus élevé</td></tr></table>', layer: layer_Risquedeprcaritalimentaire76_1},
             {label: "Google Road", layer: layer_GoogleRoad_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
