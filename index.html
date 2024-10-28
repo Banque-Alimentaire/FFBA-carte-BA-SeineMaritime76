@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
         html, body, #map {
@@ -36,11 +35,10 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="js/leaflet-search.js"></script>
         <script src="data/Risquedeprcaritalimentaire76_1.js"></script>
         <script src="data/Communes_2.js"></script>
         <script src="data/CommunesdesserviesEI2R_3.js"></script>
-        <script src="data/PointsdarrtEI2R_4.js"></script>
+        <script src="data/ArrtsEI2R_4.js"></script>
         <script src="data/CommunesdesserviesRestoduCoeur_5.js"></script>
         <script src="data/EntreptrgionalRestoduCoeur_6.js"></script>
         <script src="data/CentrededistributionRestoduCoeur_7.js"></script>
@@ -56,7 +54,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[49.279895378137574,-0.11691803241533695],[50.01672577705514,2.027832735104088]]);
+        }).fitBounds([[49.161585753200534,-0.04083775097683554],[50.173607406858785,2.10391301654259]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -266,19 +264,22 @@
         function pop_CommunesdesserviesEI2R_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
+                        <td class="visible-with-data" id="libgeo"colspan="2"><strong>Commune</strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <td class="visible-with-data" id="jenks_cut_"colspan="2"><strong>Risque de précarité alimentaire (nat)</strong><br />' + (feature.properties['jenks_cut_'] !== null ? autolinker.link(feature.properties['jenks_cut_'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="jenks_cu_1"colspan="2"><strong>Risque de précarité alimentaire (dep)</strong><br />' + (feature.properties['jenks_cu_1'] !== null ? autolinker.link(feature.properties['jenks_cu_1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="Population"colspan="2"><strong>Population</strong><br />' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Population"colspan="2"><strong>Population (com)</strong><br />' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="Zone"colspan="2"><strong>Zone - EI2R</strong><br />' + (feature.properties['Zone'] !== null ? autolinker.link(feature.properties['Zone'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="EPCI"colspan="2"><strong>EPCI</strong><br />' + (feature.properties['EPCI'] !== null ? autolinker.link(feature.properties['EPCI'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="Communes"colspan="2"><strong>Communes desservies - EI2R</strong><br />' + (feature.properties['Communes'] !== null ? autolinker.link(feature.properties['Communes'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Pop-EPCI"colspan="2"><strong>Population (EPCI)</strong><br />' + (feature.properties['Pop-EPCI'] !== null ? autolinker.link(feature.properties['Pop-EPCI'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -292,12 +293,14 @@
             return {
                 pane: 'pane_CommunesdesserviesEI2R_3',
                 opacity: 1,
-                color: 'rgba(0,0,0,0.9)',
+                color: 'rgba(255,127,0,1.0)',
                 dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,172,51,0.7607843137254902)',
                 interactive: true,
             }
         }
@@ -314,16 +317,22 @@
             style: style_CommunesdesserviesEI2R_3_0,
         });
         bounds_group.addLayer(layer_CommunesdesserviesEI2R_3);
-        function pop_PointsdarrtEI2R_4(feature, layer) {
+        function pop_ArrtsEI2R_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td class="visible-with-data" id="Zone"colspan="2"><strong>Zone - EI2R</strong><br />' + (feature.properties['Zone'] !== null ? autolinker.link(feature.properties['Zone'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Distribution"colspan="2"><strong>Distribution</strong><br />' + (feature.properties['Distribution'] !== null ? autolinker.link(feature.properties['Distribution'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="Communes"colspan="2"><strong>Communes</strong><br />' + (feature.properties['Communes'] !== null ? autolinker.link(feature.properties['Communes'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Communes desservies EI2R"colspan="2"><strong>Communes desservies EI2R</strong><br />' + (feature.properties['Communes desservies EI2R'] !== null ? autolinker.link(feature.properties['Communes desservies EI2R'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="Arret"colspan="2"><strong>Arret - EI2R</strong><br />' + (feature.properties['Arret'] !== null ? autolinker.link(feature.properties['Arret'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Arret"colspan="2"><strong>Arret</strong><br />' + (feature.properties['Arret'] !== null ? autolinker.link(feature.properties['Arret'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tel"colspan="2"><strong>Tel</strong><br />' + (feature.properties['Tel'] !== null ? autolinker.link(feature.properties['Tel'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Infos"colspan="2"><strong>Infos</strong><br />' + (feature.properties['Infos'] !== null ? autolinker.link(feature.properties['Infos'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -333,37 +342,53 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_PointsdarrtEI2R_4_0() {
-            return {
-                pane: 'pane_PointsdarrtEI2R_4',
+        function style_ArrtsEI2R_4_0(feature) {
+            switch(String(feature.properties['Infos'])) {
+                case 'distribution classique ':
+                    return {
+                pane: 'pane_ArrtsEI2R_4',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/PointsdarrtEI2R_4.svg',
-            iconSize: [15.959999999999999, 15.959999999999999]
+            iconUrl: 'markers/ArrtsEI2R_4.svg',
+            iconSize: [17.479999999999997, 17.479999999999997]
         }),
                 interactive: true,
             }
+                    break;
+                case 'distribution étudiante ':
+                    return {
+                pane: 'pane_ArrtsEI2R_4',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/ArrtsEI2R_4.svg',
+            iconSize: [17.479999999999997, 17.479999999999997]
+        }),
+                interactive: true,
+            }
+                    break;
+            }
         }
-        map.createPane('pane_PointsdarrtEI2R_4');
-        map.getPane('pane_PointsdarrtEI2R_4').style.zIndex = 404;
-        map.getPane('pane_PointsdarrtEI2R_4').style['mix-blend-mode'] = 'normal';
-        var layer_PointsdarrtEI2R_4 = new L.geoJson(json_PointsdarrtEI2R_4, {
+        map.createPane('pane_ArrtsEI2R_4');
+        map.getPane('pane_ArrtsEI2R_4').style.zIndex = 404;
+        map.getPane('pane_ArrtsEI2R_4').style['mix-blend-mode'] = 'normal';
+        var layer_ArrtsEI2R_4 = new L.geoJson(json_ArrtsEI2R_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PointsdarrtEI2R_4',
-            layerName: 'layer_PointsdarrtEI2R_4',
-            pane: 'pane_PointsdarrtEI2R_4',
-            onEachFeature: pop_PointsdarrtEI2R_4,
+            dataVar: 'json_ArrtsEI2R_4',
+            layerName: 'layer_ArrtsEI2R_4',
+            pane: 'pane_ArrtsEI2R_4',
+            onEachFeature: pop_ArrtsEI2R_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_PointsdarrtEI2R_4_0(feature));
+                return L.marker(latlng, style_ArrtsEI2R_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_PointsdarrtEI2R_4);
+        bounds_group.addLayer(layer_ArrtsEI2R_4);
         function pop_CommunesdesserviesRestoduCoeur_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -919,13 +944,13 @@
         function pop_BanquesAlimentairesSeineMaritime_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td class="visible-with-data" id="BANQUES AL"colspan="2"><strong>BANQUES AL</strong><br />' + (feature.properties['BANQUES AL'] !== null ? autolinker.link(feature.properties['BANQUES AL'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="BANQUES AL"colspan="2"><strong>Nom</strong><br />' + (feature.properties['BANQUES AL'] !== null ? autolinker.link(feature.properties['BANQUES AL'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="adresse1"colspan="2"><strong>Adresse</strong><br />' + (feature.properties['adresse1'] !== null ? autolinker.link(feature.properties['adresse1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="adresse2"colspan="2"><strong>adresse2</strong><br />' + (feature.properties['adresse2'] !== null ? autolinker.link(feature.properties['adresse2'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['adresse2'] !== null ? autolinker.link(feature.properties['adresse2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="CP"colspan="2"><strong>CP</strong><br />' + (feature.properties['CP'] !== null ? autolinker.link(feature.properties['CP'].toLocaleString()) : '') + '</td>\
@@ -1099,8 +1124,8 @@
             {label: '<img src="legend/CentrededistributionRestoduCoeur_7.png" /> Centre de distribution - Resto du Coeur ', layer: layer_CentrededistributionRestoduCoeur_7},
             {label: '<img src="legend/EntreptrgionalRestoduCoeur_6.png" /> Entrepôt régional - Resto du Coeur', layer: layer_EntreptrgionalRestoduCoeur_6},
             {label: 'Communes desservies - Resto du Coeur<br /><table><tr><td style="text-align: center;"><img src="legend/CommunesdesserviesRestoduCoeur_5_Communesdesserviesparuncentrededistribution0.png" /></td><td>Communes desservies par un centre de distribution</td></tr><tr><td style="text-align: center;"><img src="legend/CommunesdesserviesRestoduCoeur_5_Communesdesserviesparlecentreitinérant1.png" /></td><td>Communes desservies par le centre itinérant</td></tr></table>', layer: layer_CommunesdesserviesRestoduCoeur_5},
-            {label: '<img src="legend/PointsdarrtEI2R_4.png" /> Points d\'arrêt - EI2R ', layer: layer_PointsdarrtEI2R_4},
-            {label: '<img src="legend/CommunesdesserviesEI2R_3.png" /> Communes desservies - EI2R', layer: layer_CommunesdesserviesEI2R_3},
+            {label: 'Arrêts - EI2R<br /><table><tr><td style="text-align: center;"><img src="legend/ArrtsEI2R_4_distributionclassique0.png" /></td><td>distribution classique </td></tr><tr><td style="text-align: center;"><img src="legend/ArrtsEI2R_4_distributionétudiante1.png" /></td><td>distribution étudiante </td></tr></table>', layer: layer_ArrtsEI2R_4},
+            {label: '<img src="legend/CommunesdesserviesEI2R_3.png" />  Communes desservies - EI2R', layer: layer_CommunesdesserviesEI2R_3},
             {label: '<img src="legend/Communes_2.png" /> Communes ', layer: layer_Communes_2},
             {label: 'Risque de précarité alimentaire (76) <br /><table><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_1Leplusbas0.png" /></td><td>1 - Le plus bas</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_2Bas1.png" /></td><td>2 - Bas</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_3Moyen2.png" /></td><td>3 - Moyen</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_4Elevé3.png" /></td><td>4 - Elevé</td></tr><tr><td style="text-align: center;"><img src="legend/Risquedeprcaritalimentaire76_1_5Leplusélevé4.png" /></td><td>5 - Le plus élevé</td></tr></table>', layer: layer_Risquedeprcaritalimentaire76_1},
             {label: "Google Road", layer: layer_GoogleRoad_0},]
@@ -1114,14 +1139,57 @@
             collapsed: false, 
         });
         lay.addTo(map);
+		document.addEventListener("DOMContentLoaded", function() {
+            // set new Layers List height which considers toggle icon
+            function newLayersListHeight() {
+                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
+                if (layerScrollbarElement) {
+                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
+                    var originalHeight = layersListElement.style.height 
+                        || window.getComputedStyle(layersListElement).height;
+                    var newHeight = parseFloat(originalHeight) - 50;
+                    layersListElement.style.height = newHeight + 'px';
+                }
+            }
+            var isLayersListExpanded = true;
+            var controlLayersElement = document.querySelector('.leaflet-control-layers');
+            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
+            // toggle Collapsed/Expanded and apply new Layers List height
+            toggleLayerControl.addEventListener('click', function() {
+                if (isLayersListExpanded) {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                } else {
+                    controlLayersElement.classList.add('leaflet-control-layers-expanded');
+                }
+                isLayersListExpanded = !isLayersListExpanded;
+                newLayersListHeight()
+            });	
+			// apply new Layers List height if toggle layerstree
+			if (controlLayersElement) {
+				controlLayersElement.addEventListener('click', function(event) {
+					var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
+					if (toggleLayerHeaderPointer) {
+						newLayersListHeight();
+					}
+				});
+			}
+            // Collapsed/Expanded at Start to apply new height
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            // Collapsed touch/small screen
+            var isSmallScreen = window.innerWidth < 650;
+            if (isSmallScreen) {
+                setTimeout(function() {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                    isLayersListExpanded = !isLayersListExpanded;
+                }, 500);
+            }  
+        });       
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: layer_Communes_2,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'libgeo'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
         </script>
     </body>
 </html>
